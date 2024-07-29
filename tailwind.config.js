@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+// Palette from https://colorhunt.co/palette/070f2b1b1a55535c919290c3
 export default {
 	content: ["./src/**/*.{js,ts,jsx,tsx}", "./src/index.css"],
 	mode: "jit",
@@ -6,9 +7,9 @@ export default {
 		extend: {
 			colors: {
 				primary: "#050816",
-				secondary: "#aaa6c3",
-				tertiary: "#151030",
-				violet: "#915eff",
+				secondary: "#9290C3",
+				tertiary: "#070F2B",
+				violet: "#535C91",
 				"black-100": "#100d25",
 				"black-200": "#090325",
 				"white-100": "#f3f3f3",
