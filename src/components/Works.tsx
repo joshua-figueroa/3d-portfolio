@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 import { github } from "../assets";
 import SectionWrapper from "./hoc/SectionWrapper";
-import { fadeIn, textVariant } from "../utils/motion";
+import { childVariants, containerVariants, fadeIn, textVariant } from "../utils/motion";
 import { Project } from "../models/project";
 import { projects } from "../constants/projects";
 
@@ -12,18 +12,14 @@ type ProjectCardProps = {
 	index: number;
 };
 
-const ProjectCard = ({ project, index }: ProjectCardProps) => {
+const ProjectCard = ({ project }: ProjectCardProps) => {
 	return (
-		<motion.div
-			variants={fadeIn("up", "spring", index * 0.5, 0.75)}
-			className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
-		>
+		<motion.div variants={childVariants} className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full">
 			<div
-				className="relative w-full h-[230px] cursor-pointer"
+				className="relative w-full h-fit cursor-pointer"
 				onClick={() => window.open(project.published_link ?? project.source_code_link, "_blank")}
 			>
-				<img src={project.image} alt="project_image" className="w-full h-full object-cover rounded-2xl" />
-
+				<img src={project.image} alt="project_image" className="w-full h-[230px] object-cover rounded-2xl" />
 				{project.source_code_link && (
 					<div className="absolute inset-0 flex justify-end m-3 card-img_hover">
 						<div className="black-gradient w-10 h-10 rounded-full flex justify-center items-center">
@@ -57,22 +53,24 @@ const Works = () => {
 				<h2 className="section-head-text">Projects.</h2>
 			</motion.div>
 
-			<div className="w-full flex">
-				<motion.p
-					variants={fadeIn("", "", 0.1, 1)}
-					className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
-				>
-					Designed and built a complex client portal for financial advisors using React, Redux, Sass,
-					Bootstrap, and other front-end libraries, resulting in an optimized user experience and increased
-					client engagement.
-				</motion.p>
-			</div>
+			<motion.p
+				variants={fadeIn("", "", 0.1, 1)}
+				className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
+			>
+				These projects showcase my skills and experience, featuring links to code repositories and live demos.
+				They highlight my problem-solving abilities, technological versatility, and project management skills.
+			</motion.p>
 
-			<div className="mt-20 flex flex-wrap gap-7 justify-center">
+			<motion.div
+				initial="hidden"
+				animate="visible"
+				variants={containerVariants}
+				className="mt-20 flex flex-wrap gap-7 justify-center"
+			>
 				{projects.map((project, index) => (
-					<ProjectCard key={project.name} index={index} project={project} />
+					<ProjectCard key={index} project={project} index={index} />
 				))}
-			</div>
+			</motion.div>
 		</>
 	);
 };

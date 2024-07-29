@@ -86,3 +86,24 @@ export const staggerContainer = (staggerChildren: number, delayChildren: number)
 		},
 	};
 };
+
+export const containerVariants = {
+	hidden: {
+		opacity: 0,
+		transition: {
+			when: "afterChildren",
+		},
+	},
+	visible: {
+		opacity: 1,
+		transition: {
+			when: "beforeChildren",
+			staggerChildren: 0.3,
+		},
+	},
+};
+
+export const childVariants = {
+	hidden: { opacity: 0, x: 50 },
+	visible: { opacity: 1, x: 0 },
+};
