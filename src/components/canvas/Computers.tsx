@@ -14,8 +14,6 @@ const Computers = ({ isMobile }: ComputersProps) => {
 	// const { scene } = useGLTF("./mac/studio_setup.gltf");
 	const { scene } = useGLTF("./desktop_pc/scene.gltf");
 
-	console.log(isMobile);
-
 	return (
 		<mesh>
 			<hemisphereLight intensity={0.15} groundColor="black" />
