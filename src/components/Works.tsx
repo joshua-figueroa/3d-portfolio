@@ -22,7 +22,10 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 				<img src={project.image} alt="project_image" className="w-full h-[230px] object-cover rounded-2xl" />
 				{project.source_code_link && (
 					<div className="absolute inset-0 flex justify-end m-3 card-img_hover">
-						<div className="black-gradient w-10 h-10 rounded-full flex justify-center items-center">
+						<div
+							className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
+							onClick={() => window.open(project.source_code_link, "_blank")}
+						>
 							<img src={github} alt="source code" className="w-1/2 h-1/2 object-contain" />
 						</div>
 					</div>
