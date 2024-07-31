@@ -65,7 +65,7 @@ export const projects: Project[] = [
 			},
 		],
 		image: maze_runner,
-		published_link: "https://maze-runner.fly.dev",
+		published_link: "https://maze-runner.joshuafigueroa.dev",
 		source_code_link: "https://github.com/joshua-figueroa/maze-runner",
 	},
 	{
